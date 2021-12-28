@@ -4,8 +4,15 @@ void main() => runApp(MaterialApp(
   home: IdCard(),
 ));
 
-class IdCard extends StatelessWidget {
+class IdCard extends StatefulWidget {
 
+  @override
+  State<IdCard> createState() => _IdCardState();
+}
+
+class _IdCardState extends State<IdCard> {
+
+  int level = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,6 +25,15 @@ class IdCard extends StatelessWidget {
           'ID Card'
         ),
       ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          setState(() {
+            level += 1;
+          });
+        },
+        child: Icon(Icons.add),
+        backgroundColor: Colors.grey[800],
+        ),
       body: Padding(
         padding: EdgeInsets.fromLTRB(30.0, 40.0, 30.0, 0.0),
         child: Column(
@@ -36,7 +52,7 @@ class IdCard extends StatelessWidget {
             Text(
               'NAME',
               style: TextStyle(
-                fontSize: 28.0,
+                fontSize: 22.0,
                 fontWeight: FontWeight.bold,
                 color: Colors.grey,
                 letterSpacing: 2.0,
@@ -47,15 +63,15 @@ class IdCard extends StatelessWidget {
               'Harsh Shivalkar',
               style: TextStyle(
                 letterSpacing: 2.0,
-                fontSize: 30.0,
+                fontSize: 25.0,
                 color: Colors.amberAccent,
               ),
             ),
             SizedBox(height:20.0),
             Text(
-              'AGE',
+              'LEVEL',
               style: TextStyle(
-                fontSize: 28.0,
+                fontSize: 22.0,
                 fontWeight: FontWeight.bold,
                 color: Colors.grey,
                 letterSpacing: 2.0,
@@ -63,9 +79,9 @@ class IdCard extends StatelessWidget {
             ),
             SizedBox(height: 5.0,),
             Text(
-              '23',
+              '$level',
               style: TextStyle(
-                fontSize: 28.0,
+                fontSize: 25.0,
                 color: Colors.amberAccent,
                 letterSpacing: 2.0,
               ),
@@ -74,7 +90,7 @@ class IdCard extends StatelessWidget {
             Text(
               'LANGUAGE',
               style: TextStyle(
-                fontSize: 28.0,
+                fontSize: 22.0,
                 fontWeight: FontWeight.bold,
                 color: Colors.grey,
                 letterSpacing: 2.0,
@@ -84,7 +100,7 @@ class IdCard extends StatelessWidget {
             Text(
               'Python',
               style: TextStyle(
-                fontSize: 28.0,
+                fontSize: 25.0,
                 color: Colors.amberAccent,
                 letterSpacing: 2.0,
               ),
@@ -107,30 +123,6 @@ class IdCard extends StatelessWidget {
                 )
               ],
             ),
-            SizedBox(height: 30.0,),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
-                Text(
-                  'NUMBER',
-                  style: TextStyle(
-                    letterSpacing: 2.0,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.grey,
-                    fontSize: 28.0,
-                  ),
-                ),
-                SizedBox(height: 10.0,),
-                Text(
-                  '9167528498',
-                  style: TextStyle(
-                    color: Colors.amberAccent,
-                    letterSpacing: 2.0,
-                    fontSize: 28.0,
-                  ),
-                ),
-              ],
-            )
           ],
         )
       ),
